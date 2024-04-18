@@ -1,7 +1,7 @@
 # Brainstorm
 
 ### Gameplay:
-- Rouge Like 
+- Rogue Like 
 - mit so nem skill/ausrüstungssystem wie in poe
     - skills kombinieren bzw verstärken kann
 - räume wie in hades oder binding of isaac so nen bisschen procedural erstellt
