@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkpgsk3m5qlia"]
+
+[ext_resource type="Script" path="res://scenes/abilities/move/move.gd" id="1_cjlvs"]
+
+[node name="move" type="Node3D"]
+script = ExtResource("1_cjlvs")
