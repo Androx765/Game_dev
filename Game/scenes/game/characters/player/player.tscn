@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://ix0rrue5eto4"]
+
+[ext_resource type="Script" path="res://scenes/game/characters/player/player.gd" id="1_8fe3l"]
+[ext_resource type="PackedScene" uid="uid://cau0qc7jo0tik" path="res://scenes/game/characters/player/player_prototype_model.tscn" id="1_kq811"]
+[ext_resource type="Script" path="res://scenes/game/characters/player/CameraOrigin.gd" id="3_k7r1o"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1qa3d"]
+radius = 0.351439
+height = 1.8314
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
+script = ExtResource("1_8fe3l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.949205, 0)
+shape = SubResource("CapsuleShape3D_1qa3d")
+
+[node name="PlayerPrototypeModel" parent="." instance=ExtResource("1_kq811")]
+
+[node name="CameraOrigin" type="Node3D" parent="." node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("3_k7r1o")
+player = NodePath("..")
+
+[node name="MainCamera" type="Camera3D" parent="CameraOrigin"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 10, 10)
+projection = 1
+size = 10.0

@@ -1,3 +1,34 @@
-[gd_scene format=3 uid="uid://bwtflc2bkpllc"]
+[gd_scene load_steps=6 format=3 uid="uid://bwtflc2bkpllc"]
+
+[ext_resource type="PackedScene" uid="uid://ix0rrue5eto4" path="res://scenes/game/characters/player/player.tscn" id="1_nibv8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbjx0"]
+albedo_color = Color(0.87451, 0.643137, 0.403922, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jg2gx"]
+material = SubResource("StandardMaterial3D_xbjx0")
+size = Vector2(20, 20)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6kijd"]
+friction = 0.3
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qnaq5"]
+size = Vector3(20, 0.1, 20)
 
 [node name="Game" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource("1_nibv8")]
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_jg2gx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+physics_material_override = SubResource("PhysicsMaterial_6kijd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0346491, 0)
+shape = SubResource("BoxShape3D_qnaq5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+directional_shadow_mode = 0

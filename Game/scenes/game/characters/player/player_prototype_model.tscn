@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cau0qc7jo0tik"]
+
+[ext_resource type="PackedScene" uid="uid://cw7rl0ixe1n3q" path="res://assets/models/playerPrototype.glb" id="1_wvm3d"]
+
+[node name="PlayerPrototypeModel" instance=ExtResource("1_wvm3d")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
