@@ -1,15 +1,18 @@
+### Godot ###
 # Godot 4+ specific ignores
-.godot/
+/Game/.godot/
 
 # Godot-specific ignores
-.import/
-export.cfg
-export_presets.cfg
+/Game/.import/
+/Game/export.cfg
+/Game/export_presets.cfg
 
 # Imported translations (automatically generated from CSV files)
 *.translation
 
 # Mono-specific ignores
-.mono/
-data_*/
-mono_crash.*.json
+/Game/.mono/
+/Game/data_*/
+/Game/mono_crash.*.json
+
+# End of https://www.toptal.com/developers/gitignore/api/godot
