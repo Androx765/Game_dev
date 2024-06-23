@@ -3,17 +3,17 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cw7rl0ixe1n3q"
-path="res://.godot/imported/playerPrototype.glb-b09c71cad2d79545c92f2305fdef0814.scn"
+uid="uid://bqbojw3f05fn2"
+path="res://.godot/imported/playerPrototypeModel.glb-2ff1137d8e1f602cf9005f220b74257d.scn"
 
 [deps]
 
-source_file="res://assets/models/playerPrototype.glb"
-dest_files=["res://.godot/imported/playerPrototype.glb-b09c71cad2d79545c92f2305fdef0814.scn"]
+source_file="res://assets/models/playerPrototypeModel.glb"
+dest_files=["res://.godot/imported/playerPrototypeModel.glb-2ff1137d8e1f602cf9005f220b74257d.scn"]
 
 [params]
 
-nodes/root_type="Node3D"
+nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0

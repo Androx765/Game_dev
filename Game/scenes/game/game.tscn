@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwtflc2bkpllc"]
+[gd_scene load_steps=7 format=3 uid="uid://bwtflc2bkpllc"]
 
 [ext_resource type="PackedScene" uid="uid://ix0rrue5eto4" path="res://scenes/game/characters/player/player.tscn" id="1_nibv8"]
+[ext_resource type="PackedScene" uid="uid://dtwychb5owat6" path="res://scenes/game/cameras/camera_controller.tscn" id="2_1tk7b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbjx0"]
 albedo_color = Color(0.87451, 0.643137, 0.403922, 1)
@@ -18,6 +19,9 @@ size = Vector3(20, 0.1, 20)
 [node name="Game" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource("1_nibv8")]
+
+[node name="CameraController" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_1tk7b")]
+player = NodePath("../Player")
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 cast_shadow = 0
