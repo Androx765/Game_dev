@@ -6,7 +6,7 @@ const SPEED = 5.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-@onready var mesh_node = $playerPrototypeModel
+@export var mesh_node: Node3D
 
 func _physics_process(delta):
 	# Add the gravity.
