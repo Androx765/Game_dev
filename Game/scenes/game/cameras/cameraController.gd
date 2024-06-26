@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var player: Node3D
-@export var follow_speed: float = 1.0 # 0.0 (slow) - 1.0 (instant)
+@export var follow_speed: float = 0.05 # 0.0 (slow) - 1.0 (instant)
 var camera_pivot: Node3D
 
 func _ready():

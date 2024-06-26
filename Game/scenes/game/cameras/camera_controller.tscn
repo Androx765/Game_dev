@@ -2,9 +2,8 @@
 
 [ext_resource type="Script" path="res://scenes/game/cameras/cameraController.gd" id="1_rwtlj"]
 
-[node name="CameraController" type="Node3D" node_paths=PackedStringArray("player")]
+[node name="CameraController" type="Node3D"]
 script = ExtResource("1_rwtlj")
-player = NodePath("")
 
 [node name="Pivot" type="Node3D" parent="."]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
