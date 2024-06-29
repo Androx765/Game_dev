@@ -7,7 +7,7 @@ var camera_pivot: Node3D
 func _ready():
 	camera_pivot = get_child(0)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if player and camera_pivot:
 		follow_player()
 
