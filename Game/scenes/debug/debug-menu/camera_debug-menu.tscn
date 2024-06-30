@@ -1,0 +1,92 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5qhwwd2w0g1t"]
+
+[ext_resource type="Script" path="res://scenes/debug/debug-menu/camera_debug-menu_script.gd" id="1_f77rw"]
+
+[node name="Camera-debug-menu" type="Node2D"]
+script = ExtResource("1_f77rw")
+
+[node name="x" type="CanvasGroup" parent="."]
+position = Vector2(39, 0)
+
+[node name="xDown" type="Button" parent="x"]
+offset_right = 28.0
+offset_bottom = 31.0
+text = "👎"
+
+[node name="xRotation" type="Label" parent="x"]
+offset_left = 27.0
+offset_right = 37.0
+offset_bottom = 23.0
+text = "x"
+
+[node name="xValue" type="TextEdit" parent="x"]
+offset_left = 36.0
+offset_right = 86.0
+offset_bottom = 30.0
+
+[node name="xUp" type="Button" parent="x"]
+offset_left = 87.0
+offset_right = 115.0
+offset_bottom = 31.0
+text = "👍"
+
+[node name="y" type="CanvasGroup" parent="."]
+position = Vector2(39, 32)
+
+[node name="yDown" type="Button" parent="y"]
+offset_right = 28.0
+offset_bottom = 31.0
+text = "👎"
+
+[node name="xRotation" type="Label" parent="y"]
+offset_left = 27.0
+offset_right = 37.0
+offset_bottom = 23.0
+text = "y"
+
+[node name="yValue" type="TextEdit" parent="y"]
+offset_left = 36.0
+offset_right = 86.0
+offset_bottom = 30.0
+
+[node name="yUp" type="Button" parent="y"]
+offset_left = 87.0
+offset_right = 115.0
+offset_bottom = 31.0
+text = "👍"
+
+[node name="z" type="CanvasGroup" parent="."]
+position = Vector2(39, 64)
+
+[node name="zDown" type="Button" parent="z"]
+offset_right = 28.0
+offset_bottom = 31.0
+text = "👎"
+
+[node name="zRotation" type="Label" parent="z"]
+offset_left = 27.0
+offset_right = 37.0
+offset_bottom = 23.0
+text = "z
+"
+
+[node name="zValue" type="TextEdit" parent="z"]
+offset_left = 36.0
+offset_right = 86.0
+offset_bottom = 30.0
+
+[node name="zUp" type="Button" parent="z"]
+offset_left = 87.0
+offset_right = 115.0
+offset_bottom = 31.0
+text = "👍"
+
+[connection signal="button_down" from="x/xDown" to="." method="_on_x_down_button_down"]
+[connection signal="text_changed" from="x/xValue" to="." method="_on_x_value_text_changed"]
+[connection signal="button_down" from="x/xUp" to="." method="_on_x_up_button_down"]
+[connection signal="button_down" from="y/yDown" to="." method="_on_y_down_button_down"]
+[connection signal="text_changed" from="y/yValue" to="." method="_on_y_value_text_changed"]
+[connection signal="button_down" from="y/yUp" to="." method="_on_y_up_button_down"]
+[connection signal="button_down" from="z/zDown" to="." method="_on_z_down_button_down"]
+[connection signal="text_changed" from="z/zValue" to="." method="_on_z_value_text_changed"]
+[connection signal="button_down" from="z/zUp" to="." method="_on_z_up_button_down"]
