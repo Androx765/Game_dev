@@ -1,20 +1,27 @@
 extends Node2D
 
-var x_rotation = 45
-var y_rotation = 45
+var x_rotation = .01
+var y_rotation = .003
 var z_rotation = 0
+
+var camera = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$x/xValue.text = str(x_rotation) #TODO actual camera rotation
 	$y/yValue.text = str(y_rotation) #TODO actual camera rotation
 	$z/zValue.text = str(z_rotation) #TODO actual camera rotation
+	
+	camera = $MeshInstance3D #TODO actual camera
 	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(x_rotation)
+	if(camera != null):
+		camera.rotate_x(x_rotation)
+		camera.rotate_y(y_rotation)
+		camera.rotate_z(z_rotation)
 	pass
 	
 	
