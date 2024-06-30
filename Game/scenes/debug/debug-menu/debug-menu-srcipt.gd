@@ -12,12 +12,16 @@ func _process(delta):
 
 
 func _on_toggled(toggled_on):
-	var children = self.get_children()
+	var siblings = self.get_parent().get_children()
 		
 	if(toggled_on):
-		for child in children:
-			child.visible = false
+		modulate.a = 0.5
+		for sibling in siblings:
+			sibling.visible = false
+		visible = true # self becomes sibling but we dont want to turn this one off
 	else:
-		for child in children:
-			child.visible = true
+		modulate.a = 1
+		for sibling in siblings:
+			sibling.visible = true
+		
 	pass # Replace with function body.

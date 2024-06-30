@@ -1,11 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://ce5jcw0salclj"]
+[gd_scene load_steps=6 format=3 uid="uid://ce5jcw0salclj"]
 
 [ext_resource type="Texture2D" uid="uid://bqykbucbg8wr" path="res://assets/textures/dev/icons/dev-menu/esye-open.png" id="1_yfooh"]
+[ext_resource type="Script" path="res://scenes/debug/debug-menu/background_alpha.gd" id="2_k0nbm"]
 [ext_resource type="Texture2D" uid="uid://cawc8lk47dkoy" path="res://assets/textures/dev/icons/dev-menu/esye-closed.png" id="2_tmxot"]
 [ext_resource type="Script" path="res://scenes/debug/debug-menu/debug-menu-srcipt.gd" id="3_udjy2"]
 [ext_resource type="Texture2D" uid="uid://c1le0mgopxg2m" path="res://assets/textures/dev/kenney_dev_textures/PNG/Dark/texture_08.png" id="4_41h5k"]
 
-[node name="menu-visibility" type="TextureButton"]
+[node name="Node2D" type="Node2D"]
+
+[node name="background" type="TextureRect" parent="."]
+z_index = -11
+offset_left = 24.0
+offset_top = 57.0
+offset_right = 589.0
+offset_bottom = 566.0
+texture = ExtResource("4_41h5k")
+expand_mode = 1
+script = ExtResource("2_k0nbm")
+
+[node name="menu-visibility" type="TextureButton" parent="."]
 offset_left = 27.0
 offset_top = 14.0
 offset_right = 67.0
@@ -16,20 +29,11 @@ texture_pressed = ExtResource("2_tmxot")
 stretch_mode = 0
 script = ExtResource("3_udjy2")
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 46.0
-offset_right = 45.0
-offset_bottom = 54.0
+[node name="camera" type="Button" parent="."]
+offset_left = 26.0
+offset_top = 60.0
+offset_right = 92.0
+offset_bottom = 91.0
 text = "camera"
 
-[node name="TextureRect" type="TextureRect" parent="."]
-z_index = -11
-layout_mode = 0
-offset_right = 129.0
-offset_bottom = 386.0
-texture = ExtResource("4_41h5k")
-expand_mode = 1
-
-[connection signal="toggled" from="." to="." method="_on_toggled"]
+[connection signal="toggled" from="menu-visibility" to="menu-visibility" method="_on_toggled"]
