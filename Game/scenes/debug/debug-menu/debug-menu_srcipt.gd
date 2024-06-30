@@ -34,9 +34,19 @@ func _on_toggled(toggled_on):
 
 func _on_camera_pressed():
 	current_menu = "camera"
+	_hide_submenus()
+	$"camera/Camera-debug-menu".visible = true
 	pass # Replace with function body.
-
 
 func _on_smthing_else_pressed():
+	_hide_submenus()
 	current_menu = "smthing_else_pressed"
+	$"smthing else/pipiPupu".visible = true
 	pass # Replace with function body.
+
+func _hide_submenus():
+	var mainCategories = self.get_children()
+	for category in mainCategories:
+		for submenu in category.get_children():
+			submenu.visible = false
+	pass

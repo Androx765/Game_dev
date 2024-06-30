@@ -39,6 +39,7 @@ offset_bottom = 77.0
 text = "camera"
 
 [node name="Camera-debug-menu" parent="menu-visibility/camera" instance=ExtResource("6_78wiu")]
+visible = false
 position = Vector2(102, 0)
 
 [node name="smthing else" type="Button" parent="menu-visibility"]
@@ -48,6 +49,15 @@ offset_top = 79.0
 offset_right = 105.0
 offset_bottom = 110.0
 text = "smthing else"
+
+[node name="pipiPupu" type="Label" parent="menu-visibility/smthing else"]
+visible = false
+layout_mode = 0
+offset_left = 142.0
+offset_top = -31.0
+offset_right = 211.0
+offset_bottom = -8.0
+text = "pipiPupu"
 
 [node name="MenuBar" type="MenuBar" parent="menu-visibility"]
 visible = false
