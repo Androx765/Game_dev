@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ix0rrue5eto4"]
+[gd_scene load_steps=6 format=3 uid="uid://ix0rrue5eto4"]
 
 [ext_resource type="Script" path="res://scenes/game/characters/player/player.gd" id="1_8fe3l"]
 [ext_resource type="PackedScene" uid="uid://c5mc5nded1phk" path="res://scenes/game/characters/player/player_prototype_model.tscn" id="2_f14tj"]
 [ext_resource type="PackedScene" uid="uid://dj1u43sao5qrt" path="res://scenes/game/characters/player/player_model_w_anim.tscn" id="3_we0m1"]
+[ext_resource type="PackedScene" uid="uid://d0ewhi3us8m14" path="res://scenes/game/skills/meleeAttackTest.tscn" id="4_d4ksl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1qa3d"]
 radius = 0.351439
@@ -20,3 +21,6 @@ shape = SubResource("CapsuleShape3D_1qa3d")
 visible = false
 
 [node name="playerModelWAnim" parent="." instance=ExtResource("3_we0m1")]
+
+[node name="MeleeAttackTest" parent="playerModelWAnim" instance=ExtResource("4_d4ksl")]
+transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, 0, 3.33333, 3.33333)
