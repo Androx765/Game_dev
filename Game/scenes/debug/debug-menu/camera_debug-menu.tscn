@@ -1,13 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5qhwwd2w0g1t"]
+[gd_scene load_steps=2 format=3 uid="uid://b5qhwwd2w0g1t"]
 
 [ext_resource type="Script" path="res://scenes/debug/debug-menu/camera_debug-menu_script.gd" id="1_f77rw"]
-[ext_resource type="Texture2D" uid="uid://c1le0mgopxg2m" path="res://assets/textures/dev/kenney_dev_textures/PNG/Dark/texture_08.png" id="2_jjc7w"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pw3bq"]
-albedo_texture = ExtResource("2_jjc7w")
-
-[sub_resource type="BoxMesh" id="BoxMesh_wr0gy"]
-material = SubResource("StandardMaterial3D_pw3bq")
 
 [node name="Camera-debug-menu" type="Node2D"]
 script = ExtResource("1_f77rw")
@@ -88,16 +81,6 @@ offset_right = 115.0
 offset_bottom = 31.0
 text = "👍"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("BoxMesh_wr0gy")
-
-[connection signal="button_down" from="x/xDown" to="." method="_on_x_down_button_down"]
 [connection signal="text_changed" from="x/xValue" to="." method="_on_x_value_text_changed"]
-[connection signal="button_down" from="x/xUp" to="." method="_on_x_up_button_down"]
-[connection signal="button_down" from="y/yDown" to="." method="_on_y_down_button_down"]
 [connection signal="text_changed" from="y/yValue" to="." method="_on_y_value_text_changed"]
-[connection signal="button_down" from="y/yUp" to="." method="_on_y_up_button_down"]
-[connection signal="button_down" from="z/zDown" to="." method="_on_z_down_button_down"]
 [connection signal="text_changed" from="z/zValue" to="." method="_on_z_value_text_changed"]
-[connection signal="button_down" from="z/zUp" to="." method="_on_z_up_button_down"]

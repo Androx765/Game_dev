@@ -6,6 +6,9 @@ var camera_pivot: Node3D
 
 func _ready():
 	camera_pivot = get_child(0)
+	CameraGlobal.CameraPivot = camera_pivot
+	CameraGlobal.CameraObject = camera_pivot.get_child(0)
+	CameraGlobal.OrgPosition = transform.origin
 
 func _physics_process(_delta):
 	if player and camera_pivot:
