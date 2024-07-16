@@ -59,6 +59,7 @@ func _unhandled_input(event):
 	# attacks
 	if event.is_action_pressed("melee_attack"):
 		melee_attack()
+		melee_attack_test()
 	
 	# dances
 	if event.is_action_pressed("dance1"):
@@ -69,3 +70,7 @@ func _unhandled_input(event):
 func melee_attack():
 	# chooses a random melee-attack
 	anim_state.travel(attacks.pick_random())
+
+# test of melee attack with damage
+func melee_attack_test():
+	$playerModelWAnim/MeleeAttackTest.attack()
