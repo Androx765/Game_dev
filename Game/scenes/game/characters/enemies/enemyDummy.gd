@@ -1,16 +1,18 @@
-extends Node3D
+extends Entity
 
 @export var startHealth = 10
 var health
 
 func _ready():
-	health = startHealth
+	health_max = 10
+	health_current = health_max
+	#health = startHealth
 
 func _process(delta):
-	if (health <= 0):
+	if (health_current <= 0):
 		print("You clapped the Dummy")
-		health = startHealth
+		health_current = health_max
 
 func take_damage(amount: int):
 	print("Damage: ", amount)
-	health -= amount
+	health_current -= amount

@@ -2,6 +2,7 @@ class_name ActiveAbility
 extends Node3D
 
 var energy_cost: int
+var damage: int
 
 
 # Called when the node enters the scene tree for the first time.

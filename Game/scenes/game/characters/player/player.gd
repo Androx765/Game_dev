@@ -70,7 +70,6 @@ func _unhandled_input(event):
 			melee_attack()
 			melee_attack_test()
 			fire.execute(self)
-			use_energy(fire.energy_cost)
 	
 	# dances
 	if event.is_action_pressed("dance1"):
