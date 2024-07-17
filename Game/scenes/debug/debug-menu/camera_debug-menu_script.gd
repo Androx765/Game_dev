@@ -4,6 +4,7 @@ var x_rotation = 0
 var y_rotation = 0
 var z_rotation = 0
 
+var test = "neu"
 var cameraPivot = null
 var cameraObject = null
 
