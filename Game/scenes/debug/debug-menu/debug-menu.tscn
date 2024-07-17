@@ -59,6 +59,30 @@ offset_right = 211.0
 offset_bottom = -8.0
 text = "pipiPupu"
 
+[node name="MenuBar" type="MenuBar" parent="menu-visibility"]
+visible = false
+layout_mode = 0
+offset_top = 166.0
+offset_right = 40.0
+offset_bottom = 206.0
+
+[node name="camera" type="PopupMenu" parent="menu-visibility/MenuBar"]
+hide_on_item_selection = false
+hide_on_checkable_item_selection = false
+item_count = 1
+item_0/text = "xRot"
+item_0/id = 0
+
+[node name="smthingElse" type="PopupMenu" parent="menu-visibility/MenuBar"]
+hide_on_item_selection = false
+hide_on_checkable_item_selection = false
+item_count = 2
+item_0/text = "a"
+item_0/id = 0
+item_1/text = "b"
+item_1/checkable = 1
+item_1/id = 1
+
 [connection signal="toggled" from="menu-visibility" to="menu-visibility" method="_on_toggled"]
 [connection signal="pressed" from="menu-visibility/camera" to="menu-visibility" method="_on_camera_pressed"]
 [connection signal="pressed" from="menu-visibility/smthing else" to="menu-visibility" method="_on_smthing_else_pressed"]

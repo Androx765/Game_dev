@@ -1,72 +1,73 @@
 extends Node2D
 
-var x_rotation = 0
-var y_rotation = 0
-var z_rotation = 0
 
-var test = "neu"
-var cameraPivot = null
-var cameraObject = null
+#var test = "neu"
+var cameraPivot;
+var cameraObject;
 
-var speed = 0.001
+var axis;
+var rotation_amount;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	x_rotation = CameraGlobal.OrgRotation.x
-	y_rotation = CameraGlobal.OrgRotation.y
-	z_rotation = CameraGlobal.OrgRotation.z
-	$x/xValue.text = str(x_rotation) 
-	$y/yValue.text = str(y_rotation)
-	$z/zValue.text = str(z_rotation)
+	
+	rotation_amount = 0.001
+	
 	
 	cameraPivot = CameraGlobal.CameraPivot
 	cameraObject = CameraGlobal.CameraObject
-	pass
+	
+	$x/xValue.text = str(cameraObject.rotation_degrees.x)
+	$y/yValue.text = str(cameraPivot.rotation_degrees.y)
+	$z/zValue.text = str(cameraObject.rotation_degrees.z)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(cameraObject != null):
-		cameraObject.rotate_x(x_rotation)
-		cameraPivot.rotate_y(y_rotation)
-		cameraObject.rotate_z(z_rotation)
 		
 	if ($x/xDown.button_pressed):
-		$x/xValue.text = str(float($x/xValue.text) -speed) 
-		x_rotation = float($x/xValue.text)
+		axis = Vector3(-1,0,0)
+		rotate_on_x(axis, rotation_amount)
 	
 	if ($y/yDown.button_pressed):
-		$y/yValue.text = str(float($y/yValue.text) -speed) 
-		y_rotation = float($y/yValue.text)
-		
+		axis = Vector3(0,-1,0)
+		rotate_on_y(axis, rotation_amount)
+	
 	if ($z/zDown.button_pressed):
-		$z/zValue.text = str(float($z/zValue.text) -speed) 
-		z_rotation = float($z/zValue.text)
-		
+		axis = Vector3(0,0,-1)
+		rotate_on_z(axis, rotation_amount)
+	
 	if ($x/xUp.button_pressed):
-		$x/xValue.text = str(float($x/xValue.text) +speed) 
-		x_rotation = float($x/xValue.text)
+		axis = Vector3(1,0,0)
+		rotate_on_x(axis, rotation_amount)
 	
 	if ($y/yUp.button_pressed):
-		$y/yValue.text = str(float($y/yValue.text) +speed) 
-		y_rotation = float($y/yValue.text)
+		axis = Vector3(0,1,0)
+		rotate_on_y(axis, rotation_amount)
 		
 	if ($z/zUp.button_pressed):
-		$z/zValue.text = str(float($z/zValue.text) +speed) 
-		z_rotation = float($z/zValue.text)
-	pass
+		axis = Vector3(0,0,1)
+		rotate_on_z(axis, rotation_amount)
 	
 	
 func _on_x_value_text_changed():
-	x_rotation = float($x/xValue.text)
-	pass 
+	cameraObject.transform.basis = Basis(Vector3(1,0,0), deg_to_rad(float($x/xValue.text)))
 
 func _on_y_value_text_changed():
-	y_rotation = float($y/yValue.text)
-	pass 
+	cameraPivot.transform.basis = Basis(Vector3(0,1,0), deg_to_rad(float($y/yValue.text)))
 
 func _on_z_value_text_changed():
-	z_rotation = float($z/zValue.text)
-	pass 
+	cameraObject.transform.basis = Basis(Vector3(0,0,1), deg_to_rad(float($z/zValue.text)))
 
+func rotate_on_x(axis, rotation_amount):
+	cameraObject.transform.basis = Basis(axis, rotation_amount) * cameraObject.transform.basis
+	$x/xValue.text = str(cameraObject.rotation_degrees.x)
 
+func rotate_on_y(axis, rotation_amount):
+	cameraPivot.transform.basis = Basis(axis, rotation_amount) * cameraPivot.transform.basis
+	$y/yValue.text = str(cameraPivot.rotation_degrees.y)
+
+func rotate_on_z(axis, rotation_amount):
+	cameraObject.transform.basis = Basis(axis, rotation_amount) * cameraObject.transform.basis
+	$z/zValue.text = str(cameraObject.rotation_degrees.z)
 

@@ -9,24 +9,25 @@ script = ExtResource("1_f77rw")
 position = Vector2(39, 0)
 
 [node name="xDown" type="Button" parent="x"]
-offset_right = 28.0
+offset_left = -7.0
+offset_right = 23.0
 offset_bottom = 31.0
 text = "👎"
 
 [node name="xRotation" type="Label" parent="x"]
-offset_left = 27.0
-offset_right = 37.0
-offset_bottom = 23.0
+offset_left = 25.0
+offset_right = 35.0
+offset_bottom = 32.0
 text = "x"
 
 [node name="xValue" type="TextEdit" parent="x"]
-offset_left = 36.0
-offset_right = 86.0
-offset_bottom = 30.0
+offset_left = 33.0
+offset_right = 199.0
+offset_bottom = 35.0
 
 [node name="xUp" type="Button" parent="x"]
-offset_left = 87.0
-offset_right = 115.0
+offset_left = 201.0
+offset_right = 231.0
 offset_bottom = 31.0
 text = "👍"
 
@@ -34,51 +35,62 @@ text = "👍"
 position = Vector2(39, 32)
 
 [node name="yDown" type="Button" parent="y"]
-offset_right = 28.0
-offset_bottom = 31.0
+offset_left = -7.0
+offset_top = 8.0
+offset_right = 23.0
+offset_bottom = 39.0
 text = "👎"
 
 [node name="xRotation" type="Label" parent="y"]
-offset_left = 27.0
-offset_right = 37.0
-offset_bottom = 23.0
+offset_left = 25.0
+offset_top = 8.0
+offset_right = 35.0
+offset_bottom = 40.0
 text = "y"
 
 [node name="yValue" type="TextEdit" parent="y"]
-offset_left = 36.0
-offset_right = 86.0
-offset_bottom = 30.0
+offset_left = 33.0
+offset_top = 8.0
+offset_right = 199.0
+offset_bottom = 43.0
 
 [node name="yUp" type="Button" parent="y"]
-offset_left = 87.0
-offset_right = 115.0
-offset_bottom = 31.0
+offset_left = 201.0
+offset_top = 8.0
+offset_right = 231.0
+offset_bottom = 39.0
 text = "👍"
 
 [node name="z" type="CanvasGroup" parent="."]
 position = Vector2(39, 64)
 
 [node name="zDown" type="Button" parent="z"]
-offset_right = 28.0
-offset_bottom = 31.0
+offset_left = -7.0
+offset_top = 16.0
+offset_right = 23.0
+offset_bottom = 47.0
 text = "👎"
 
 [node name="zRotation" type="Label" parent="z"]
-offset_left = 27.0
-offset_right = 37.0
-offset_bottom = 23.0
+offset_left = 25.0
+offset_top = 16.0
+offset_right = 35.0
+offset_bottom = 48.0
 text = "z
 "
+vertical_alignment = 1
 
 [node name="zValue" type="TextEdit" parent="z"]
-offset_left = 36.0
-offset_right = 86.0
-offset_bottom = 30.0
+offset_left = 33.0
+offset_top = 16.0
+offset_right = 199.0
+offset_bottom = 51.0
 
 [node name="zUp" type="Button" parent="z"]
-offset_left = 87.0
-offset_right = 115.0
-offset_bottom = 31.0
+offset_left = 201.0
+offset_top = 16.0
+offset_right = 233.0
+offset_bottom = 48.0
 text = "👍"
 
 [connection signal="text_changed" from="x/xValue" to="." method="_on_x_value_text_changed"]
