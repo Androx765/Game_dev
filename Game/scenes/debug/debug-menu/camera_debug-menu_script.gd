@@ -12,7 +12,7 @@ var rotation_amount;
 func _ready():
 	
 	rotation_amount = 0.001
-	
+	$Label/turnSpeed.text = str(rotation_amount)
 	
 	cameraPivot = CameraGlobal.CameraPivot
 	cameraObject = CameraGlobal.CameraObject
@@ -24,7 +24,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-		
+	
 	if ($x/xDown.button_pressed):
 		axis = Vector3(-1,0,0)
 		rotate_on_x(axis, rotation_amount)
@@ -71,3 +71,7 @@ func rotate_on_z(axis, rotation_amount):
 	cameraObject.transform.basis = Basis(axis, rotation_amount) * cameraObject.transform.basis
 	$z/zValue.text = str(cameraObject.rotation_degrees.z)
 
+
+func _on_turn_speed_text_changed():
+	rotation_amount = float($Label/turnSpeed.text)
+	pass # Replace with function body.

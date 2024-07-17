@@ -93,6 +93,19 @@ offset_right = 233.0
 offset_bottom = 48.0
 text = "👍"
 
+[node name="Label" type="Label" parent="."]
+offset_left = 399.0
+offset_top = 2.0
+offset_right = 480.0
+offset_bottom = 37.0
+text = "turnSpeed"
+
+[node name="turnSpeed" type="TextEdit" parent="Label"]
+offset_left = -123.0
+offset_top = -2.0
+offset_bottom = 35.0
+
 [connection signal="text_changed" from="x/xValue" to="." method="_on_x_value_text_changed"]
 [connection signal="text_changed" from="y/yValue" to="." method="_on_y_value_text_changed"]
 [connection signal="text_changed" from="z/zValue" to="." method="_on_z_value_text_changed"]
+[connection signal="text_changed" from="Label/turnSpeed" to="." method="_on_turn_speed_text_changed"]
