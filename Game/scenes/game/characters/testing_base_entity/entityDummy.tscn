@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4ljbxcihn2ni"]
+
+[ext_resource type="Script" path="res://scenes/game/characters/testing_base_entity/entityDummy.gd" id="1_tj336"]
+
+[node name="EntityDummy" type="Node3D"]
+script = ExtResource("1_tj336")

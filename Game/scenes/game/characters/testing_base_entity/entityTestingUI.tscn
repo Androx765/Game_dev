@@ -1,0 +1,82 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbr47ebdjjpnd"]
+
+[ext_resource type="Script" path="res://scenes/game/characters/testing_base_entity/entityTestingUI.gd" id="1_wwkeq"]
+
+[node name="EntityTestingUI" type="Control"]
+layout_mode = 3
+anchor_right = 0.549
+anchor_bottom = 0.285
+offset_right = -0.447998
+offset_bottom = 0.319977
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wwkeq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.117647)
+
+[node name="Health" type="Label" parent="."]
+layout_mode = 0
+offset_left = 428.0
+offset_top = 100.0
+offset_right = 503.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 20
+text = "Health: "
+
+[node name="Energy" type="Label" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 100.0
+offset_right = 197.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 20
+text = "Energy: "
+
+[node name="Button_ApplyDamage" type="Button" parent="."]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 28.0
+offset_right = 179.0
+offset_bottom = 69.0
+text = "Apply Damage"
+
+[node name="Button_RegenHealth" type="Button" parent="."]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 28.0
+offset_right = 411.0
+offset_bottom = 69.0
+text = "Regenerate Health"
+
+[node name="Button_UseAbility" type="Button" parent="."]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 28.0
+offset_right = 573.0
+offset_bottom = 69.0
+text = "Use Ability"
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 353.0
+offset_top = 133.0
+offset_right = 582.0
+offset_bottom = 169.0
+
+[node name="EnergyBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 133.0
+offset_right = 274.0
+offset_bottom = 169.0
+
+[connection signal="pressed" from="Button_ApplyDamage" to="." method="_on_button_apply_damage_pressed"]
+[connection signal="pressed" from="Button_RegenHealth" to="." method="_on_button_regen_health_pressed"]
+[connection signal="pressed" from="Button_UseAbility" to="." method="_on_button_use_ability_pressed"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://bwtflc2bkpllc"]
+[gd_scene load_steps=18 format=3 uid="uid://bwtflc2bkpllc"]
 
 [ext_resource type="PackedScene" uid="uid://ix0rrue5eto4" path="res://scenes/game/characters/player/player.tscn" id="1_nibv8"]
+[ext_resource type="PackedScene" uid="uid://dbr47ebdjjpnd" path="res://scenes/game/characters/testing_base_entity/entityTestingUI.tscn" id="1_snwct"]
 [ext_resource type="PackedScene" uid="uid://dtwychb5owat6" path="res://scenes/game/cameras/camera_controller.tscn" id="2_1tk7b"]
 [ext_resource type="Texture2D" uid="uid://cklayjv56ays2" path="res://assets/textures/dev/kenney/PNG/Green/texture_02.png" id="3_m0nn2"]
 [ext_resource type="Texture2D" uid="uid://dc8g1vqjwaqa0" path="res://assets/textures/dev/kenney/PNG/Orange/texture_02.png" id="3_qhnw1"]
@@ -84,3 +85,12 @@ environment = SubResource("Environment_tppkt")
 
 [node name="EnemyDummy" parent="." instance=ExtResource("6_f5htk")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 5.46985, 0.690464, -4.35374)
+
+[node name="EntityTestingUI" parent="." instance=ExtResource("1_snwct")]
+offset_left = 274.0
+offset_top = 457.0
+offset_right = 273.552
+offset_bottom = 290.784
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_vertical = 0
