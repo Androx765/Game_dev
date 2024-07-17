@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://l6bbatdh24xb"]
+
+[ext_resource type="Script" path="res://scenes/game/abilities/fire/fire.gd" id="1_uxjnj"]
+
+[node name="Fire" type="Node3D"]
+script = ExtResource("1_uxjnj")

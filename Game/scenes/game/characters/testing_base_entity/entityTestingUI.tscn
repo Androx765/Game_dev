@@ -53,7 +53,7 @@ offset_left = 245.0
 offset_top = 28.0
 offset_right = 411.0
 offset_bottom = 69.0
-text = "Regenerate Health"
+text = "Regenerate"
 
 [node name="Button_UseAbility" type="Button" parent="."]
 layout_mode = 0

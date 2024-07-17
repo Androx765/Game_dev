@@ -6,6 +6,9 @@ extends Entity
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+# abilities
+var fire = load_ability("fire")
+
 # attack animation names
 var attacks = [
 	"melee_attack"
@@ -63,9 +66,11 @@ func get_move_input(delta):
 func _unhandled_input(event):
 	# attacks
 	if event.is_action_pressed("melee_attack"):
-		melee_attack()
-		melee_attack_test()
-		use_energy(20)
+		if energy_current >= fire.energy_cost:
+			melee_attack()
+			melee_attack_test()
+			fire.execute(self)
+			use_energy(fire.energy_cost)
 	
 	# dances
 	if event.is_action_pressed("dance1"):

@@ -21,7 +21,8 @@ func _on_button_apply_damage_pressed():
 
 
 func _on_button_regen_health_pressed():
-	playerNode.regen_heath()
+	playerNode.regen_health()
+	playerNode.regen_energy()
 
 
 func _on_button_use_ability_pressed():

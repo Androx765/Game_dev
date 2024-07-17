@@ -28,10 +28,10 @@ var is_moving: bool
 func setup_base_stats(health: int, energy: int):
 	health_current = health
 	health_max = health
-	health_regen = health / 100
+	health_regen = health / 10
 	energy_current = energy
 	energy_max = energy
-	energy_regen = energy / 100
+	energy_regen = energy / 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -42,7 +42,7 @@ func _process(delta):
 	pass
 
 ## regenerate health by adding the regen amount
-func regen_heath():
+func regen_health():
 	if health_current < health_max:
 		health_current += health_regen
 		if health_current > health_max:
@@ -77,3 +77,9 @@ func apply_damage_to_armor():
 
 func apply_damage_to_health():
 	health_current -= 1
+
+func load_ability(ability: String):
+	var scene = load("res://scenes/game/abilities/" + ability + "/" + ability + ".tscn")
+	var sceneNode = scene.instantiate()
+	add_child(sceneNode)
+	return sceneNode
