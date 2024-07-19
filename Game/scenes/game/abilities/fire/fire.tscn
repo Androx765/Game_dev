@@ -1,6 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://l6bbatdh24xb"]
+[gd_scene load_steps=5 format=3 uid="uid://l6bbatdh24xb"]
 
 [ext_resource type="Script" path="res://scenes/game/abilities/fire/fire.gd" id="1_uxjnj"]
 
-[node name="Fire" type="Node3D"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bdqcx"]
+radius = 0.05
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xlmc2"]
+albedo_color = Color(0.648567, 0.310483, 0.172784, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hyhfd"]
+material = SubResource("StandardMaterial3D_xlmc2")
+radius = 0.05
+height = 0.2
+
+[node name="Fire" type="RigidBody3D"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+gravity_scale = 0.0
 script = ExtResource("1_uxjnj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_bdqcx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_hyhfd")
