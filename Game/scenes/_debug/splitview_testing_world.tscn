@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://jn0j0hp8ytr2"]
+
+[ext_resource type="PackedScene" uid="uid://c3ahwacqwlk8e" path="res://scenes/_debug/testing_world.tscn" id="1_uwsug"]
+
+[node name="SplitView" type="Node2D"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewportContainerTop" type="SubViewportContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainerTop"]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="TestingWorld" parent="HBoxContainer/SubViewportContainerTop/SubViewport" instance=ExtResource("1_uwsug")]
+
+[node name="CameraTop" type="Camera3D" parent="HBoxContainer/SubViewportContainerTop/SubViewport"]
+transform = Transform3D(1, -6.97574e-16, -1.5246e-23, -1.5246e-23, -4.37114e-08, 1, -6.97574e-16, -1, -4.37114e-08, 2.08165e-12, 8, 2.08165e-12)
+fov = 117.0
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="SubViewportContainerCorner" type="SubViewportContainer" parent="HBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/GridContainer/SubViewportContainerCorner"]
+handle_input_locally = false
+size = Vector2i(512, 256)
+render_target_update_mode = 4
+
+[node name="CameraCorner" type="Camera3D" parent="HBoxContainer/GridContainer/SubViewportContainerCorner/SubViewport"]
+transform = Transform3D(0.707107, -0.40558, 0.579228, 2.8571e-16, 0.819152, 0.573576, -0.707107, -0.40558, 0.579228, 9, 7, 9)
+fov = 80.0
+
+[node name="SubViewportContainerWall" type="SubViewportContainer" parent="HBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/GridContainer/SubViewportContainerWall"]
+handle_input_locally = false
+size = Vector2i(512, 256)
+render_target_update_mode = 4
+
+[node name="CameraWall" type="Camera3D" parent="HBoxContainer/GridContainer/SubViewportContainerWall/SubViewport"]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 1.5, 9.9)
+fov = 70.0
