@@ -87,10 +87,12 @@ environment = SubResource("Environment_tppkt")
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 5.46985, 0.690464, -4.35374)
 
 [node name="EntityTestingUI" parent="." instance=ExtResource("1_snwct")]
-offset_left = 274.0
-offset_top = 457.0
-offset_right = 273.552
-offset_bottom = 290.784
-grow_horizontal = 1
-grow_vertical = 1
+anchor_left = 0.239
+anchor_top = 0.715
+anchor_right = 0.239
+anchor_bottom = 0.715
+offset_left = -0.328003
+offset_top = -6.32001
+offset_right = -0.328003
+offset_bottom = 0.0
 size_flags_vertical = 0
