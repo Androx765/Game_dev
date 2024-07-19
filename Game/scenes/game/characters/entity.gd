@@ -1,6 +1,6 @@
 class_name Entity 
 
-extends CharacterBody3D #should be RigidBody3D 
+extends CharacterBody3D 
 
 # base stats
 var health_max: int
@@ -80,6 +80,8 @@ func apply_damage_to_health():
 
 func load_ability(ability: String):
 	var scene = load("res://scenes/game/abilities/" + ability + "/" + ability + ".tscn")
-	var sceneNode = scene.instantiate()
-	add_child(sceneNode)
-	return sceneNode
+	var ability_node = scene.instantiate()
+	add_child(ability_node)
+	ability_node.position = position
+	ability_node.velocity = ability_node.velocity.rotated(ability_node.rotation.normalized(), 0)
+	return ability_node

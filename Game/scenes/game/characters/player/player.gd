@@ -15,7 +15,7 @@ var attacks = [
 ]
 var is_attacking = false
 
-@onready var mesh_node: Node3D = $playerModelWAnim
+@onready var player_model: Node3D = $playerModelWAnim
 @onready var anim_tree = $playerModelWAnim.get_children()[2]
 @onready var anim_state = $playerModelWAnim.get_children()[2].get("parameters/playback")
 
@@ -36,7 +36,7 @@ func _physics_process(delta):
 	# handle rotation
 	if velocity.length() > 1.0:
 		var angular_rotation = 10
-		mesh_node.rotation.y = lerp_angle(mesh_node.rotation.y, atan2(velocity.x, velocity.z) - rotation.y, delta * angular_rotation)
+		player_model.rotation.y = lerp_angle(player_model.rotation.y, atan2(velocity.x, velocity.z) - rotation.y, delta * angular_rotation)
 	
 
 
@@ -69,7 +69,7 @@ func _unhandled_input(event):
 		if energy_current >= fire.energy_cost:
 			melee_attack()
 			melee_attack_test()
-			fire.execute(self)
+			fire.execute(self, player_model.get_transform().basis.z, $AbilityPosition.position)
 	
 	# dances
 	if event.is_action_pressed("dance1"):

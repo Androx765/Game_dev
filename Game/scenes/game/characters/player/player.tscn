@@ -24,3 +24,7 @@ visible = false
 
 [node name="MeleeAttackTest" parent="playerModelWAnim" instance=ExtResource("4_d4ksl")]
 transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, 0, 3.33333, 3.33333)
+visible = false
+
+[node name="AbilityPosition" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0241506, 1.7195, 0.189958)
