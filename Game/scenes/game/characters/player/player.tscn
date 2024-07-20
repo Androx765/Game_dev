@@ -7,14 +7,15 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1qa3d"]
 radius = 0.351439
-height = 1.8314
+height = 1.87658
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
 script = ExtResource("1_8fe3l")
+speed = 8.0
+acceleration = 8.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.949205, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.934, 0)
 shape = SubResource("CapsuleShape3D_1qa3d")
 
 [node name="PlayerPrototypeModel" parent="." instance=ExtResource("2_f14tj")]
