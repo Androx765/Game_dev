@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cyxxnbkfho7t3"
-path="res://.godot/imported/playerModelWAnim.glb-db23e119dfc8ba6013b037a9f33c5aba.scn"
+uid="uid://crusqvjatj0yg"
+path="res://.godot/imported/ground_grass_02.glb-913713896b0be0cae944f1d302980cb2.scn"
 
 [deps]
 
-source_file="res://assets/models/playerModelWAnim.glb"
-dest_files=["res://.godot/imported/playerModelWAnim.glb-db23e119dfc8ba6013b037a9f33c5aba.scn"]
+source_file="res://assets/models/environment/ground/ground_grass_02.glb"
+dest_files=["res://.godot/imported/ground_grass_02.glb-913713896b0be0cae944f1d302980cb2.scn"]
 
 [params]
 

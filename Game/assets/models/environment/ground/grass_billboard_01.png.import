@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpivlbgt2ib45"
-path.s3tc="res://.godot/imported/texture_12.png-f5e073d4bdcb18b4ec852b1679f1c016.s3tc.ctex"
+uid="uid://jjx5dcaxd1kh"
+path.s3tc="res://.godot/imported/grass_billboard_01.png-db5169bb6bb1227583bade2d11516f07.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/dev/kenney/PNG/Light/texture_12.png"
-dest_files=["res://.godot/imported/texture_12.png-f5e073d4bdcb18b4ec852b1679f1c016.s3tc.ctex"]
+source_file="res://assets/models/environment/ground/grass_billboard_01.png"
+dest_files=["res://.godot/imported/grass_billboard_01.png-db5169bb6bb1227583bade2d11516f07.s3tc.ctex"]
 
 [params]
 
