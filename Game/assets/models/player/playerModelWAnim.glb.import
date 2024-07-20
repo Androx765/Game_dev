@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cyxxnbkfho7t3"
-path="res://.godot/imported/playerModelWAnim.glb-db23e119dfc8ba6013b037a9f33c5aba.scn"
+path="res://.godot/imported/playerModelWAnim.glb-57f235728da0ec6b4f83018c29f5d72f.scn"
 
 [deps]
 
-source_file="res://assets/models/playerModelWAnim.glb"
-dest_files=["res://.godot/imported/playerModelWAnim.glb-db23e119dfc8ba6013b037a9f33c5aba.scn"]
+source_file="res://assets/models/player/playerModelWAnim.glb"
+dest_files=["res://.godot/imported/playerModelWAnim.glb-57f235728da0ec6b4f83018c29f5d72f.scn"]
 
 [params]
 
