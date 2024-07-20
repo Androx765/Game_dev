@@ -600,6 +600,39 @@ mesh = SubResource("CapsuleMesh_pf6kk")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Bushes/Bush3/BushBase"]
 shape = SubResource("CapsuleShape3D_bpdpe")
 
+[node name="Bush4" type="Node3D" parent="Environment/Bushes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2995, 0.890896, 4.16986)
+
+[node name="BushBase" type="StaticBody3D" parent="Environment/Bushes/Bush4"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Bushes/Bush4/BushBase"]
+mesh = SubResource("CapsuleMesh_pf6kk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Bushes/Bush4/BushBase"]
+shape = SubResource("CapsuleShape3D_bpdpe")
+
+[node name="Bush5" type="Node3D" parent="Environment/Bushes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.3175, 0.890896, 19.2282)
+
+[node name="BushBase" type="StaticBody3D" parent="Environment/Bushes/Bush5"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Bushes/Bush5/BushBase"]
+mesh = SubResource("CapsuleMesh_pf6kk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Bushes/Bush5/BushBase"]
+shape = SubResource("CapsuleShape3D_bpdpe")
+
+[node name="Bush6" type="Node3D" parent="Environment/Bushes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.3175, 0.890896, 15.2282)
+
+[node name="BushBase" type="StaticBody3D" parent="Environment/Bushes/Bush6"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Bushes/Bush6/BushBase"]
+mesh = SubResource("CapsuleMesh_pf6kk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Bushes/Bush6/BushBase"]
+shape = SubResource("CapsuleShape3D_bpdpe")
+
 [node name="Trees" type="Node3D" parent="Environment"]
 
 [node name="Tree1" type="Node3D" parent="Environment/Trees"]
