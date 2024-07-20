@@ -29,7 +29,7 @@ sky = SubResource("Sky_aet0t")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pthb6"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_7xo1n"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_yvhsh"]
 size = Vector3(60, 2, 60)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j1l05"]
@@ -155,14 +155,13 @@ height = 2.0
 [node name="Game" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource("1_nibv8")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 
 [node name="CameraController" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_1tk7b")]
 player = NodePath("../Player")
 
 [node name="box" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11855, 0.454492, 2.17942)
-visible = false
 mesh = SubResource("BoxMesh_ekpg5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="box"]
@@ -172,7 +171,6 @@ shape = SubResource("BoxShape3D_iy82m")
 
 [node name="box2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.209283, -1.80537, 0.688511, 0.893344, 1.09747, 0.154152, -0.397663, 1.51532, 0.708653, -3.156, -0.108, -1.058)
-visible = false
 mesh = SubResource("BoxMesh_ekpg5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="box2"]
@@ -198,7 +196,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 physics_material_override = SubResource("PhysicsMaterial_pthb6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Ground"]
-shape = SubResource("BoxShape3D_7xo1n")
+shape = SubResource("BoxShape3D_yvhsh")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Ground"]
 mesh = SubResource("BoxMesh_7wkmp")
