@@ -1,13 +1,30 @@
-[gd_scene load_steps=51 format=3 uid="uid://bwtflc2bkpllc"]
+[gd_scene load_steps=53 format=3 uid="uid://bwtflc2bkpllc"]
 
 [ext_resource type="PackedScene" uid="uid://ix0rrue5eto4" path="res://scenes/game/characters/player/player.tscn" id="1_nibv8"]
 [ext_resource type="PackedScene" uid="uid://dtwychb5owat6" path="res://scenes/game/cameras/camera_controller.tscn" id="2_1tk7b"]
 [ext_resource type="Texture2D" uid="uid://dc8g1vqjwaqa0" path="res://assets/textures/dev/kenney/PNG/Orange/texture_02.png" id="3_qhnw1"]
-[ext_resource type="Texture2D" uid="uid://e8xoj2c2u6ly" path="res://assets/materials/rosendal_plains_1_4k.hdr" id="3_v35sk"]
+[ext_resource type="Script" path="res://scenes/game/day_night_cycle/day_night_cycle.gd" id="3_vel4s"]
 [ext_resource type="PackedScene" uid="uid://b4w62wtev6oti" path="res://scenes/game/characters/enemies/enemyDummy.tscn" id="6_f5htk"]
 [ext_resource type="Texture2D" uid="uid://evbbxss75hdp" path="res://assets/textures/dev/kenney/PNG/Green/texture_08.png" id="7_iavko"]
 [ext_resource type="Texture2D" uid="uid://gbi4kqt7rpp5" path="res://assets/textures/dev/kenney/PNG/Light/texture_06.png" id="7_q6e33"]
 [ext_resource type="Texture2D" uid="uid://dfr12m67di2vc" path="res://assets/textures/dev/kenney/PNG/Orange/texture_01.png" id="8_yrsxi"]
+
+[sub_resource type="Gradient" id="Gradient_6dvbk"]
+colors = PackedColorArray(0.0978714, 0.172518, 0.434386, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t2pef"]
+gradient = SubResource("Gradient_6dvbk")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_wnyns"]
+night_sky = SubResource("GradientTexture2D_t2pef")
+
+[sub_resource type="Sky" id="Sky_aet0t"]
+sky_material = SubResource("PhysicalSkyMaterial_wnyns")
+
+[sub_resource type="Environment" id="Environment_tppkt"]
+background_mode = 2
+sky = SubResource("Sky_aet0t")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r7v7t"]
 albedo_texture = ExtResource("3_qhnw1")
@@ -16,16 +33,6 @@ albedo_texture = ExtResource("3_qhnw1")
 material = SubResource("StandardMaterial3D_r7v7t")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iy82m"]
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_0x2nx"]
-panorama = ExtResource("3_v35sk")
-
-[sub_resource type="Sky" id="Sky_aet0t"]
-sky_material = SubResource("PanoramaSkyMaterial_0x2nx")
-
-[sub_resource type="Environment" id="Environment_tppkt"]
-background_mode = 2
-sky = SubResource("Sky_aet0t")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pthb6"]
 
@@ -120,6 +127,8 @@ size = Vector3(0.5, 0.3, 1.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cg370"]
 albedo_color = Color(1, 1, 0.4, 1)
+emission_enabled = true
+emission = Color(0.975579, 0.907023, 0.615436, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_f3n2x"]
 material = SubResource("StandardMaterial3D_cg370")
@@ -141,6 +150,7 @@ height = 7.0
 height = 7.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_gaboi"]
+lightmap_size_hint = Vector2i(96, 49)
 radius = 3.0
 height = 6.0
 
@@ -160,6 +170,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 [node name="CameraController" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_1tk7b")]
 player = NodePath("../Player")
 
+[node name="DayNightCycle" type="Node3D" parent="."]
+script = ExtResource("3_vel4s")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="DayNightCycle"]
+environment = SubResource("Environment_tppkt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="DayNightCycle"]
+transform = Transform3D(-0.5, -0.866025, -3.78552e-08, 0, -4.37114e-08, 1, -0.866025, 0.5, 2.18557e-08, 0, 0, 0)
+shadow_enabled = true
+
 [node name="box" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11855, 0.454492, 2.17942)
 mesh = SubResource("BoxMesh_ekpg5")
@@ -177,13 +197,6 @@ mesh = SubResource("BoxMesh_ekpg5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="box2/StaticBody3D"]
 shape = SubResource("BoxShape3D_iy82m")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-visible = false
-directional_shadow_mode = 0
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_tppkt")
 
 [node name="EnemyDummy" parent="." instance=ExtResource("6_f5htk")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 5.46985, 0.690464, -4.35374)
@@ -471,7 +484,7 @@ mesh = SubResource("CylinderMesh_gamql")
 [node name="StreetLamps" type="Node3D" parent="Environment"]
 
 [node name="StreetLamp1" type="Node3D" parent="Environment/StreetLamps"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3892, -7.95616)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3892, -8.55975)
 
 [node name="LampBase" type="StaticBody3D" parent="Environment/StreetLamps/StreetLamp1"]
 
@@ -495,14 +508,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -2.98023e-08, 1, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_f3n2x")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Environment/StreetLamps/StreetLamp1/LampLight"]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74227e-08, -1, 0, 0, 0)
-light_color = Color(1, 1, 0.878431, 1)
-light_energy = 3.0
-spot_range = 7.69074
-spot_angle = 30.0
+transform = Transform3D(1, 0, 0, 0, -0.994137, -0.10812, 0, 0.108121, -0.994137, 0, 0, 0)
+light_color = Color(0.999999, 0.989692, 0.603828, 1)
+light_energy = 10.0
+shadow_enabled = true
+spot_range = 14.1447
+spot_attenuation = 1.31951
+spot_angle = 41.7983
+spot_angle_attenuation = 1.56917
 
 [node name="StreetLamp2" type="Node3D" parent="Environment/StreetLamps"]
-transform = Transform3D(-8.9407e-08, 0, -1, 0, 1, 0, 1, 0, -8.9407e-08, 8.55636, 3.3892, 11.2845)
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -19.8856, 3.3892, 3.25097)
 
 [node name="LampBase" type="StaticBody3D" parent="Environment/StreetLamps/StreetLamp2"]
 
@@ -519,21 +535,24 @@ transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0,
 mesh = SubResource("BoxMesh_1s8qd")
 
 [node name="LampLight" type="Node3D" parent="Environment/StreetLamps/StreetLamp2"]
-transform = Transform3D(1, 0, 0, 0, 0.34202, -0.939693, 0, 0.939693, 0.34202, -9.53674e-07, 3.57391, 0.831987)
+transform = Transform3D(1, 0, 0, 0, 0.34202, -0.939693, 0, 0.939693, 0.34202, 0, 3.58085, 0.829462)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/StreetLamps/StreetLamp2/LampLight"]
-transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -2.98023e-08, 1, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_f3n2x")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Environment/StreetLamps/StreetLamp2/LampLight"]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74227e-08, -1, 0, 0, 0)
-light_color = Color(1, 1, 0.878431, 1)
-light_energy = 3.0
-spot_range = 7.69074
-spot_angle = 30.0
+transform = Transform3D(1, 0, 0, 0, -0.994137, -0.10812, 0, 0.108121, -0.994137, 0, 0, 0)
+light_color = Color(0.999999, 0.989692, 0.603828, 1)
+light_energy = 10.0
+shadow_enabled = true
+spot_range = 14.1447
+spot_attenuation = 1.31951
+spot_angle = 41.7983
+spot_angle_attenuation = 1.56917
 
 [node name="StreetLamp3" type="Node3D" parent="Environment/StreetLamps"]
-transform = Transform3D(-1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, -21.0672, 3.3892, 1.89281)
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 16.2627, 3.3892, -8.55975)
 
 [node name="LampBase" type="StaticBody3D" parent="Environment/StreetLamps/StreetLamp3"]
 
@@ -550,18 +569,55 @@ transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0,
 mesh = SubResource("BoxMesh_1s8qd")
 
 [node name="LampLight" type="Node3D" parent="Environment/StreetLamps/StreetLamp3"]
-transform = Transform3D(1, 0, 0, 0, 0.34202, -0.939693, 0, 0.939693, 0.34202, 0, 3.61516, 0.816977)
+transform = Transform3D(1, 0, 0, 0, 0.34202, -0.939693, 0, 0.939693, 0.34202, 0, 3.58085, 0.829462)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/StreetLamps/StreetLamp3/LampLight"]
-transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -2.98023e-08, 1, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_f3n2x")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Environment/StreetLamps/StreetLamp3/LampLight"]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74227e-08, -1, 0, 0, 0)
-light_color = Color(1, 1, 0.878431, 1)
-light_energy = 3.0
-spot_range = 7.69074
-spot_angle = 30.0
+transform = Transform3D(1, 0, 0, 0, -0.994137, -0.10812, 0, 0.108121, -0.994137, 0, 0, 0)
+light_color = Color(0.999999, 0.989692, 0.603828, 1)
+light_energy = 10.0
+shadow_enabled = true
+spot_range = 14.1447
+spot_attenuation = 1.31951
+spot_angle = 41.7983
+spot_angle_attenuation = 1.56917
+
+[node name="StreetLamp4" type="Node3D" parent="Environment/StreetLamps"]
+transform = Transform3D(-8.9407e-08, 0, -1, 0, 1, 0, 1, 0, -8.9407e-08, 9.22404, 3.3892, 18.0622)
+
+[node name="LampBase" type="StaticBody3D" parent="Environment/StreetLamps/StreetLamp4"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/StreetLamps/StreetLamp4/LampBase"]
+mesh = SubResource("CylinderMesh_0gkvb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/StreetLamps/StreetLamp4/LampBase"]
+shape = SubResource("CylinderShape3D_hbrfn")
+
+[node name="LampTop" type="Node3D" parent="Environment/StreetLamps/StreetLamp4"]
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 3.63854, 0.667944)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/StreetLamps/StreetLamp4/LampTop"]
+mesh = SubResource("BoxMesh_1s8qd")
+
+[node name="LampLight" type="Node3D" parent="Environment/StreetLamps/StreetLamp4"]
+transform = Transform3D(1, 0, 0, 0, 0.34202, -0.939693, 0, 0.939693, 0.34202, 0, 3.58085, 0.829462)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/StreetLamps/StreetLamp4/LampLight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -2.98023e-08, 1, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_f3n2x")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Environment/StreetLamps/StreetLamp4/LampLight"]
+transform = Transform3D(1, 0, 0, 0, -0.994137, -0.10812, 0, 0.108121, -0.994137, 0, 0, 0)
+light_color = Color(0.999999, 0.989692, 0.603828, 1)
+light_energy = 10.0
+shadow_enabled = true
+spot_range = 14.1447
+spot_attenuation = 1.31951
+spot_angle = 41.7983
+spot_angle_attenuation = 1.56917
 
 [node name="Bushes" type="Node3D" parent="Environment"]
 
