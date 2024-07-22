@@ -6,7 +6,7 @@ var health
 func _ready():
 	health = startHealth
 
-func _process(delta):
+func _process(_delta):
 	if (health <= 0):
 		print("You clapped the Dummy")
 		health = startHealth
