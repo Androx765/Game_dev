@@ -16,3 +16,6 @@
 /Game/mono_crash.*.json
 
 # End of https://www.toptal.com/developers/gitignore/api/godot
+
+#Mac_stuff
+.DS_Store
