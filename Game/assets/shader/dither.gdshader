@@ -4,8 +4,9 @@ render_mode unshaded;
 
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear;
 
-uniform float spread = 1.0;
-uniform float color_count = 2.0;
+uniform float spread = 0.1;
+uniform float color_count = 1.0;
+uniform int bayer_level = 1; //0 -> 2x2, 1 -> 4x4, 2 -> 8x8
 
 //Threshold-maps (https://en.wikipedia.org/wiki/Ordered_dithering)
 
@@ -60,7 +61,6 @@ void fragment() {
 	bayerValues[2] = getBayer8(x, y);
 	
 	vec3 original = texture(SCREEN_TEXTURE, uv).rgb;
-	int bayer_level = 0;
 	vec3 dithered = original + spread * bayerValues[bayer_level];
 
 	//dithered = clamp(dithered, 0.0, 1.0); //ensure values are within 0, 1.
